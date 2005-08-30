@@ -20,8 +20,11 @@ LDAP changes
 Written by John Goerzen, jgoerzen\@complete.org
 -}
 
-module LDAP.Modify (LDAPModOp(..), LDAPMod(..),
-                    ldapAdd, ldapModify, ldapDelete
+module LDAP.Modify (-- * Basics
+                    LDAPModOp(..), LDAPMod(..),
+                    ldapAdd, ldapModify, ldapDelete,
+                    -- * Utilities
+                    list2ldm
                    )
 where
 
@@ -71,6 +74,13 @@ ldapDelete ld dn =
     do checkLE "ldapDelete" ld $ ldap_delete_s cld cdn
        return ()
                    ))
+
+{- | Takes a list of name\/value points and converts them to LDAPMod
+entries.  Each item will have the specified 'LDAPModOp'. -}
+list2ldm :: LDAPModOp -> [(String, [String])] -> [LDAPMod]
+list2ldm mo = map (\(key, vals) -> LDAPMod {modOp = mo, modType = key,
+                                            modVals = vals}
+                  )
 
 data CLDAPMod
 
