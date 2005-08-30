@@ -24,7 +24,7 @@ module LDAP.Modify (-- * Basics
                     LDAPModOp(..), LDAPMod(..),
                     ldapAdd, ldapModify, ldapDelete,
                     -- * Utilities
-                    list2ldm
+                    list2ldm, pairs2ldm
                    )
 where
 
@@ -81,6 +81,10 @@ list2ldm :: LDAPModOp -> [(String, [String])] -> [LDAPMod]
 list2ldm mo = map (\(key, vals) -> LDAPMod {modOp = mo, modType = key,
                                             modVals = vals}
                   )
+
+{- | Similar to list2ldm, but handles pairs with only one value. -}
+pairs2ldm :: LDAPModOp -> [(String, String)] -> [LDAPMod]
+pairs2ldm mo = list2ldm mo . map (\(x, y) -> (x, [y]))
 
 data CLDAPMod
 
