@@ -19,7 +19,8 @@ Top-level LDAP module.
 
 Written by John Goerzen, jgoerzen\@complete.org
 
-Foo bar
+Welcome to the LDAP interface for Haskell.  Please see one of the sections
+below for more information.
 -}
 
 module LDAP (-- * Basic Types

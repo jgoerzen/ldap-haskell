@@ -1,3 +1,9 @@
+ldap-haskell (0.5.0) unstable; urgency=low
+
+  * Added new features for ldap modifications.
+
+ -- John Goerzen <jgoerzen@complete.org>  Mon, 29 Aug 2005 06:02:08 -0500
+
 ldap-haskell (0.1.0) unstable; urgency=low
 
   * Initial release.

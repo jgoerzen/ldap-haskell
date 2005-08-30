@@ -2,10 +2,10 @@ Extra-Libraries: ldap
 -- End detected settings section.  Everything below here should not
 -- need editing.
 Name: LDAP
-Version: 0.1.0
+Version: 0.5.0
 License: GPL
 Maintainer: John Goerzen <jgoerzen@complete.org>
-Stability: Alpha
+Stability: Beta
 Copyright: Copyright (c) 2005 John Goerzen
 -- C-Sources: glue/glue.c
 Exposed-Modules: LDAP,
