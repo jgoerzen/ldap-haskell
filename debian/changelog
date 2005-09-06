@@ -1,6 +1,7 @@
 ldap-haskell (0.5.0) unstable; urgency=low
 
   * Added new features for ldap modifications.
+  * Tightened up build-depends on haskell-devscripts.  Closes: #326793.
 
  -- John Goerzen <jgoerzen@complete.org>  Mon, 29 Aug 2005 06:02:08 -0500
 
