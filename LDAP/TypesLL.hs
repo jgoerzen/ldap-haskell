@@ -6,7 +6,7 @@ This code is under a 3-clause BSD license; see COPYING for details.
 -}
 
 {- |
-   Module     : LDAP.Types
+   Module     : LDAP.TypesLL
    Copyright  : Copyright (C) 2005 John Goerzen
    License    : BSD
 
