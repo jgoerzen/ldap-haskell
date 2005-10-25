@@ -1,3 +1,10 @@
+ldap-haskell (0.5.1) unstable; urgency=low
+
+  * Rebuilt for new GHC.  Closes: #335626.
+  * Update build-dep for new haskell-devscripts.
+
+ -- John Goerzen <jgoerzen@complete.org>  Tue, 25 Oct 2005 06:01:55 -0500
+
 ldap-haskell (0.5.0) unstable; urgency=low
 
   * Added new features for ldap modifications.
