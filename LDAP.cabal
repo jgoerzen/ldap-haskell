@@ -6,7 +6,7 @@ Version: 0.5.0
 License: GPL
 Maintainer: John Goerzen <jgoerzen@complete.org>
 Stability: Beta
-Copyright: Copyright (c) 2005 John Goerzen
+Copyright: Copyright (c) 2005-2006 John Goerzen
 -- C-Sources: glue/glue.c
 Exposed-Modules: LDAP,
  LDAP.Types,
