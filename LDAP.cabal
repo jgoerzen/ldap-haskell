@@ -2,7 +2,7 @@ Extra-Libraries: ldap
 -- End detected settings section.  Everything below here should not
 -- need editing.
 Name: LDAP
-Version: 0.5.0
+Version: 0.5.2
 License: BSD3
 Maintainer: John Goerzen <jgoerzen@complete.org>
 Stability: Beta
@@ -19,7 +19,7 @@ Exposed-Modules: LDAP,
 Other-Modules: LDAP.Utils,
  LDAP.TypesLL,
  LDAP.Result
-Build-Depends: haskell-src
+Build-Depends: base
 GHC-Options: -O2
 -- CC-Options: -Iglue
 Extensions: ForeignFunctionInterface, TypeSynonymInstances
