@@ -235,8 +235,6 @@ data LDAPOptionCode =
  | LdapOptErrorNumber
  | LdapOptErrorString
  | LdapOptMatchedDn
- | LdapOptOn
- | LdapOptOff
  | LdapOptSuccess
  | LdapOptError
  | UnknownLDAPOptionCode Int
@@ -259,8 +257,6 @@ instance Enum LDAPOptionCode where
  toEnum (#{const LDAP_OPT_ERROR_NUMBER}) = LdapOptErrorNumber
  toEnum (#{const LDAP_OPT_ERROR_STRING}) = LdapOptErrorString
  toEnum (#{const LDAP_OPT_MATCHED_DN}) = LdapOptMatchedDn
- toEnum (#{const LDAP_OPT_ON}) = LdapOptOn
- toEnum (#{const LDAP_OPT_OFF}) = LdapOptOff
  toEnum (#{const LDAP_OPT_SUCCESS}) = LdapOptSuccess
  toEnum (#{const LDAP_OPT_ERROR}) = LdapOptError
  toEnum x = UnknownLDAPOptionCode x
@@ -280,8 +276,6 @@ instance Enum LDAPOptionCode where
  fromEnum LdapOptErrorNumber = (#{const LDAP_OPT_ERROR_NUMBER})
  fromEnum LdapOptErrorString = (#{const LDAP_OPT_ERROR_STRING})
  fromEnum LdapOptMatchedDn = (#{const LDAP_OPT_MATCHED_DN})
- fromEnum LdapOptOn = (#{const LDAP_OPT_ON})
- fromEnum LdapOptOff = (#{const LDAP_OPT_OFF})
  fromEnum LdapOptSuccess = (#{const LDAP_OPT_SUCCESS})
  fromEnum LdapOptError = (#{const LDAP_OPT_ERROR})
  fromEnum (UnknownLDAPOptionCode x) = x
