@@ -25,6 +25,7 @@ should be considered to be the source code.
 -}
 
 module LDAP.Utils(checkLE, checkLEe, checkLEn1,
+                  throwLE, ldapSuccess, ldap_get_option, ldap_set_option,
                   checkNULL, LDAPPtr, fromLDAPPtr,
                   withLDAPPtr, maybeWithLDAPPtr, withMString,
                   withCStringArr0, ldap_memfree,
@@ -53,20 +54,11 @@ import Foreign.C.Types
    handle LDAP_REFERRAL?
    -}
 
-{- | Check the return value.  If it's something other than 
-'LDAP.Constants.ldapSuccess', raise an LDAP exception. -}
-checkLE :: String -> LDAP -> IO LDAPInt -> IO LDAPInt
-checkLE = checkLEe (\r -> r == fromIntegral (fromEnum LdapSuccess))
+-- LDAP exception
 
-checkLEn1 :: String -> LDAP -> IO LDAPInt -> IO LDAPInt
-checkLEn1 = checkLEe (\r -> r /= -1)
-
-checkLEe :: (LDAPInt -> Bool) -> String -> LDAP -> IO LDAPInt -> IO LDAPInt
-checkLEe test callername ld action =
-    do result <- action
-       if test result
-          then return result
-          else do errornum <- ldapGetOptionIntNoEc ld LdapOptErrorNumber
+throwLE :: String -> Maybe LDAP -> IO ()
+throwLE callername ld = do
+                  errornum <- ldapGetOptionIntNoEc ld LdapOptErrorNumber
                   let hserror = toEnum (fromIntegral errornum)
                   err2string <- (ldap_err2string errornum >>= peekCString)
                   objstring <- ldapGetOptionStrNoEc ld LdapOptErrorString
@@ -85,7 +77,29 @@ checkLEe test callername ld action =
                                            description = s,
                                            caller = callername}
                   throwDyn exc
+
 -}
+
+ldapSuccess :: LDAPInt -> Bool
+ldapSuccess (#const LDAP_SUCCESS) = True
+ldapSuccess _ = False
+
+{- | Check the return value.  If it's something other than 
+'LDAP.Constants.ldapSuccess', raise an LDAP exception. -}
+
+checkLEe :: (LDAPInt -> Bool) -> String -> Maybe LDAP -> IO LDAPInt -> IO LDAPInt
+checkLEe test callername ld action = do
+	result <- action
+	if test result
+		then return ()
+		else throwLE callername ld
+	return result
+
+checkLE :: String -> LDAP -> IO LDAPInt -> IO LDAPInt
+checkLE n ld = checkLEe ldapSuccess n (Just ld)
+
+checkLEn1 :: String -> LDAP -> IO LDAPInt -> IO LDAPInt
+checkLEn1 n ld = checkLEe (/= -1) n (Just ld)
 
 {- | Raise an IOError based on errno if getting a NULL.  Identical
 to Foreign.C.Error.throwErrnoIfNull. -}
@@ -112,9 +126,9 @@ maybeWithLDAPPtr Nothing func = func nullPtr
 maybeWithLDAPPtr (Just x) y = withLDAPPtr x y
 
 {- | Returns an int, doesn't raise exceptions on err (just crashes) -}
-ldapGetOptionIntNoEc :: LDAP -> LDAPOptionCode -> IO LDAPInt
+ldapGetOptionIntNoEc :: Maybe LDAP -> LDAPOptionInt -> IO LDAPInt
 ldapGetOptionIntNoEc ld oc =
-    withLDAPPtr ld (\pld -> alloca (f pld))
+    maybeWithLDAPPtr ld (\pld -> alloca (f pld))
     where oci = fromIntegral $ fromEnum oc
           f pld (ptr::Ptr LDAPInt) =
               do res <- ldap_get_option pld oci (castPtr ptr)
@@ -123,9 +137,9 @@ ldapGetOptionIntNoEc ld oc =
                     else peek ptr
 
 {- | Returns a string, doesn't raise exceptions on err (just crashes) -}
-ldapGetOptionStrNoEc :: LDAP -> LDAPOptionCode -> IO (Maybe String)
+ldapGetOptionStrNoEc :: Maybe LDAP -> LDAPOptionString -> IO (Maybe String)
 ldapGetOptionStrNoEc ld oc =
-    withLDAPPtr ld (\pld -> alloca (f pld))
+    maybeWithLDAPPtr ld (\pld -> alloca (f pld))
     where
     oci = fromEnum oc
     f pld (ptr::Ptr CString) = 
@@ -196,6 +210,9 @@ foreign import ccall unsafe "ldap.h ldap_err2string"
 
 foreign import ccall unsafe "ldap.h ldap_get_option"
   ldap_get_option :: LDAPPtr -> LDAPInt -> Ptr () -> IO LDAPInt
+
+foreign import ccall unsafe "ldap.h ldap_set_option"
+  ldap_set_option :: LDAPPtr -> LDAPInt -> Ptr () -> IO LDAPInt
 
 foreign import ccall unsafe "ldap.h &ldap_memfree"
   ldap_memfree_call :: FunPtr (CString -> IO ())

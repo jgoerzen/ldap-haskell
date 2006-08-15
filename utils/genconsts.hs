@@ -59,7 +59,16 @@ modHeader =
 main = 
     do putStrLn modHeader
        putStrLn (errorClause "LDAPReturnCode" errorConsts)
-       putStrLn (errorClause "LDAPOptionCode" optionConsts)
+
+       putStrLn (errorClause "LDAPOptionBoolean" optionBooleanConsts)
+       putStrLn (errorClause "LDAPOptionTime" optionTimeConsts)
+       putStrLn (errorClause "LDAPOptionInt" optionIntConsts)
+       putStrLn (errorClause "LDAPOptionStringList" optionStringListConsts)
+       putStrLn (errorClause "LDAPOptionString" optionStringConsts)
+       putStrLn (errorClause "LDAPOptionTLS" optionTLSConsts)
+       putStrLn (errorClause "LDAPOptionTLSValue" optionTLSValueConsts)
+       putStrLn (errorClause "LDAPSaslOption" saslOption)
+
        putStrLn (errorClause "LDAPScope" scopeConsts)
        putStrLn (errorClause "LDAPModOp" modConsts)
 
@@ -90,6 +99,7 @@ errorConsts = [
       "LDAP_MORE_RESULTS_TO_RETURN", "LDAP_CLIENT_LOOP", 
       "LDAP_REFERRAL_LIMIT_EXCEEDED"]
 
+{-
 optionConsts = [
       "LDAP_OPT_API_INFO", "LDAP_OPT_DESC", "LDAP_OPT_DEREF", 
       "LDAP_OPT_SIZELIMIT", "LDAP_OPT_TIMELIMIT", "LDAP_OPT_REFERRALS", 
@@ -98,6 +108,28 @@ optionConsts = [
       "LDAP_OPT_HOST_NAME", "LDAP_OPT_ERROR_NUMBER", "LDAP_OPT_ERROR_STRING", 
       "LDAP_OPT_MATCHED_DN", "LDAP_OPT_SUCCESS",
       "LDAP_OPT_ERROR"]
+-}
+
+optionBooleanConsts = ["LDAP_OPT_REFERRALS", "LDAP_OPT_RESTART"]
+optionTimeConsts = ["LDAP_OPT_TIMEOUT", "LDAP_OPT_NETWORK_TIMEOUT"]
+optionIntConsts = [
+	"LDAP_OPT_DEBUG_LEVEL", "LDAP_OPT_DEREF", "LDAP_OPT_DESC",
+	"LDAP_OPT_SIZELIMIT", "LDAP_OPT_TIMELIMIT",
+	"LDAP_OPT_PROTOCOL_VERSION", "LDAP_OPT_ERROR_NUMBER"]
+optionStringListConsts = ["LDAP_OPT_REFERRAL_URLS"]
+optionStringConsts = [
+	"LDAP_OPT_HOST_NAME", "LDAP_OPT_MATCHED_DN", "LDAP_OPT_ERROR_STRING",
+	"LDAP_OPT_URI", "LDAP_OPT_X_TLS_CACERTFILE", "LDAP_OPT_X_TLS_CACERTDIR",
+	"LDAP_OPT_X_TLS_CERTFILE", "LDAP_OPT_X_TLS_KEYFILE",
+	"LDAP_OPT_X_TLS_DHFILE", "LDAP_OPT_X_TLS_CIPHER_SUITE",
+	"LDAP_OPT_X_TLS_RANDOM_FILE"]
+optionTLSConsts = ["LDAP_OPT_X_TLS_REQUIRE_CERT", "LDAP_OPT_X_TLS"]
+optionTLSValueConsts = [
+	"LDAP_OPT_X_TLS_NEVER", "LDAP_OPT_X_TLS_DEMAND",
+	"LDAP_OPT_X_TLS_ALLOW", "LDAP_OPT_X_TLS_TRY", "LDAP_OPT_X_TLS_HARD"]
+saslOption = [
+	"LDAP_SASL_AUTOMATIC", "LDAP_SASL_INTERACTIVE", "LDAP_SASL_QUIET"]
+
 
 scopeConsts = [
       "LDAP_SCOPE_DEFAULT", "LDAP_SCOPE_BASE", "LDAP_SCOPE_ONELEVEL",
