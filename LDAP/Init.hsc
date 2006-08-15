@@ -22,8 +22,7 @@ Written by John Goerzen, jgoerzen\@complete.org
 
 module LDAP.Init(ldapOpen,
                  ldapInit,
-                 ldapSimpleBind,
-		 ldapStartTls)
+                 ldapSimpleBind)
 where
 
 import Foreign.Ptr
@@ -73,17 +72,9 @@ ldapSimpleBind ld dn passwd =
            return ()
                          )))
 
-data LdapControl = LdapControl
-
-ldapStartTls :: LDAP -> Maybe LdapControl -> Maybe LdapControl -> IO ()
-ldapStartTls ld sctl cctl =
-    withLDAPPtr ld $ \ ptr -> do
-	checkLE "ldapStartTls" ld $
-		cldap_start_tls_s ptr nullPtr nullPtr
-	return ()
-
 foreign import ccall unsafe "ldap.h ldap_init"
   cldap_init :: CString -> CInt -> IO LDAPPtr
+
 
 foreign import ccall unsafe "ldap.h ldap_open"
   cldap_open :: CString -> CInt -> IO LDAPPtr
@@ -91,5 +82,5 @@ foreign import ccall unsafe "ldap.h ldap_open"
 foreign import ccall unsafe "ldap.h ldap_simple_bind_s"
   ldap_simple_bind_s :: LDAPPtr -> CString -> CString -> IO LDAPInt
 
-foreign import ccall unsafe "ldap.h ldap_start_tls_s"
-  cldap_start_tls_s :: LDAPPtr -> Ptr (Ptr ()) -> Ptr (Ptr ()) -> IO LDAPInt
+foreign import ccall unsafe "ldap.h ldap_set_option"
+  ldap_set_option :: LDAPPtr -> LDAPInt -> Ptr () -> IO LDAPInt

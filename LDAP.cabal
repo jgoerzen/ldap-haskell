@@ -15,14 +15,11 @@ Exposed-Modules: LDAP,
  LDAP.Data,
  LDAP.Exceptions,
  LDAP.Search,
- LDAP.Modify,
- LDAP.Options,
- LDAP.Sasl
+ LDAP.Modify
 Other-Modules: LDAP.Utils,
  LDAP.TypesLL,
  LDAP.Result
 Build-Depends: base
 GHC-Options: -O2
-CC-Options: -DLDAP_DEPRECATED=1
 -- CC-Options: -Iglue
 Extensions: ForeignFunctionInterface, TypeSynonymInstances
