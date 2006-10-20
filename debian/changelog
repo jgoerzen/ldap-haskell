@@ -1,3 +1,15 @@
+ldap-haskell (0.6.0) unstable; urgency=low
+
+  * Apply a patch from Donn Cave to add ldap_set_uption and TLS support
+  
+  * Removed LDAP_OPT_ON and LDAP_OPT_OFF -- caused link problems on Gentoo
+  
+  * Updates for GHC 6.6
+  
+  * Removed some extra files
+
+ -- John Goerzen <jgoerzen@katherina.lan.complete.org>  Fri, 20 Oct 2006 08:14:03 -0500
+
 ldap-haskell (0.5.2) unstable; urgency=low
 
   * Rebuilt for GHC 6.4.2
