@@ -45,7 +45,7 @@ modHeader =
  "   License    : BSD\n" ++
  "\n" ++
  "   Maintainer : John Goerzen,\n" ++
- "   Maintainer : jgoerzen@complete.org\n" ++
+ "   Maintainer : jgoerzen\\@complete.org\n" ++
  "   Stability  : provisional\n" ++
  "   Portability: portable\n" ++
  "\n" ++
