@@ -23,7 +23,7 @@ below for more information.
 
 This package comes from:
 
-http://software.complete.org/ldap-haskell
+<http://software.complete.org/ldap-haskell>
 -}
 
 module LDAP (-- * Basic Types
