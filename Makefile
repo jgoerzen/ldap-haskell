@@ -29,6 +29,7 @@ setup: Setup.lhs LDAP.cabal
 
 doc: setup
 	./setup haddock
+	mv dist/doc/html .
 
 clean:
 	-./setup clean
