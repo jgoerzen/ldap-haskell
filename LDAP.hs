@@ -1,13 +1,12 @@
 {- -*- Mode: haskell; -*-
 Haskell LDAP Interface
-Copyright (C) 2005 John Goerzen <jgoerzen@complete.org>
 
 This code is under a 3-clause BSD license; see COPYING for details.
 -}
 
 {- |
    Module     : LDAP
-   Copyright  : Copyright (C) 2005-2006 John Goerzen
+   Copyright  : Copyright (C) 2005-2007 John Goerzen
    License    : BSD
 
    Maintainer : John Goerzen,
@@ -21,6 +20,10 @@ Written by John Goerzen, jgoerzen\@complete.org
 
 Welcome to the LDAP interface for Haskell.  Please see one of the sections
 below for more information.
+
+This package comes from:
+
+http://software.complete.org/ldap-haskell
 -}
 
 module LDAP (-- * Basic Types
