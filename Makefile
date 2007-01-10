@@ -28,6 +28,7 @@ setup: Setup.lhs LDAP.cabal
 
 
 doc: setup
+	-rm -rf html
 	./setup haddock
 	mv dist/doc/html .
 
