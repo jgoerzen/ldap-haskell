@@ -2,13 +2,13 @@ Extra-Libraries: ldap
 -- End detected settings section.  Everything below here should not
 -- need editing.
 Name: LDAP
-Version: 0.6.1
+Version: 0.6.3
 License: BSD3
 Maintainer: John Goerzen <jgoerzen@complete.org>
 Author: John Goerzen
 Stability: Beta
-Copyright: Copyright (c) 2005-2006 John Goerzen
-homepage: http://darcs.complete.org/ldap-haskell
+Copyright: Copyright (c) 2005-2008 John Goerzen
+homepage: http://software.complete.org/ldap-haskell
 Category: Network
 Synopsis: Haskell binding for C LDAP API
 license-file: COPYRIGHT
