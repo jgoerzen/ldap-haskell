@@ -28,4 +28,5 @@ Other-Modules: LDAP.Utils,
 Build-Depends: base
 GHC-Options: -O2
 -- CC-Options: -Iglue
-Extensions: ForeignFunctionInterface, TypeSynonymInstances
+Extensions: ForeignFunctionInterface, TypeSynonymInstances,
+            EmptyDataDecls, PatternSignatures
