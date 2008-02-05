@@ -28,5 +28,6 @@ Other-Modules: LDAP.Utils,
 Build-Depends: base
 GHC-Options: -O2
 -- CC-Options: -Iglue
+CC-Options: -DLDAP_DEPRECATED=1
 Extensions: ForeignFunctionInterface, TypeSynonymInstances,
             EmptyDataDecls, PatternSignatures
