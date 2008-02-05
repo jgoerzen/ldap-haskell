@@ -1,3 +1,10 @@
+ldap-haskell (0.6.4.0) unstable; urgency=low
+
+  * Update for newer OpenLDAP: rename LDAP_X_PROXY_AUTHZ_FAILURE
+    from LDAP_PROXY_AUTHZ_FAILURE.
+
+ -- John Goerzen <jgoerzen@complete.org>  Mon, 04 Feb 2008 01:14:44 -0600
+
 ldap-haskell (0.6.3.0) unstable; urgency=low
 
   * Update for newer GHC 6.8.x.

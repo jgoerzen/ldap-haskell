@@ -2,7 +2,7 @@ Extra-Libraries: ldap
 -- End detected settings section.  Everything below here should not
 -- need editing.
 Name: LDAP
-Version: 0.6.3
+Version: 0.6.4
 License: BSD3
 Maintainer: John Goerzen <jgoerzen@complete.org>
 Author: John Goerzen

@@ -113,7 +113,7 @@ instance Enum LDAPReturnCode where
  toEnum (#{const LDAP_INVALID_DN_SYNTAX}) = LdapInvalidDnSyntax
  toEnum (#{const LDAP_IS_LEAF}) = LdapIsLeaf
  toEnum (#{const LDAP_ALIAS_DEREF_PROBLEM}) = LdapAliasDerefProblem
- toEnum (#{const LDAP_PROXY_AUTHZ_FAILURE}) = LdapProxyAuthzFailure
+ toEnum (#{const LDAP_X_PROXY_AUTHZ_FAILURE}) = LdapProxyAuthzFailure
  toEnum (#{const LDAP_INAPPROPRIATE_AUTH}) = LdapInappropriateAuth
  toEnum (#{const LDAP_INVALID_CREDENTIALS}) = LdapInvalidCredentials
  toEnum (#{const LDAP_INSUFFICIENT_ACCESS}) = LdapInsufficientAccess
@@ -176,7 +176,7 @@ instance Enum LDAPReturnCode where
  fromEnum LdapInvalidDnSyntax = (#{const LDAP_INVALID_DN_SYNTAX})
  fromEnum LdapIsLeaf = (#{const LDAP_IS_LEAF})
  fromEnum LdapAliasDerefProblem = (#{const LDAP_ALIAS_DEREF_PROBLEM})
- fromEnum LdapProxyAuthzFailure = (#{const LDAP_PROXY_AUTHZ_FAILURE})
+ fromEnum LdapProxyAuthzFailure = (#{const LDAP_X_PROXY_AUTHZ_FAILURE})
  fromEnum LdapInappropriateAuth = (#{const LDAP_INAPPROPRIATE_AUTH})
  fromEnum LdapInvalidCredentials = (#{const LDAP_INVALID_CREDENTIALS})
  fromEnum LdapInsufficientAccess = (#{const LDAP_INSUFFICIENT_ACCESS})
