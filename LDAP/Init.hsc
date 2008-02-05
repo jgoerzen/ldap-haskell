@@ -46,7 +46,7 @@ ldapInit host port =
     with ((#{const LDAP_VERSION3})::LDAPInt) (\copt ->
        do cld <- cldap_init cs port
           rv <- fromLDAPPtr "ldapInit" (return cld)
-          ldap_set_option cld #{const LDAP_OPT_PROTOCOL_VERSION} (castPtr copt)
+          ldap_set_option cld #{const LDAP_OPT_PROTOCOL_VERSION} copt
           return rv
                      ))
 
@@ -56,7 +56,12 @@ ldapOpen :: String              -- ^ Host
             -> IO LDAP          -- ^ New LDAP Obj
 ldapOpen host port =
     withCString host (\cs ->
-                      fromLDAPPtr "ldapOpen" $ cldap_open cs port)
+    with ((#{const LDAP_VERSION3})::LDAPInt) (\copt ->
+       do cld <- cldap_open cs port
+          rv <- fromLDAPPtr "ldapOpen" (return cld)
+          checkLE "LSO" rv (ldap_set_option cld #{const LDAP_OPT_PROTOCOL_VERSION} copt)
+          return rv
+                     ))
 
 {- | Bind to the remote server. -}
 ldapSimpleBind :: LDAP          -- ^ LDAP Object
@@ -83,4 +88,4 @@ foreign import ccall unsafe "ldap.h ldap_simple_bind_s"
   ldap_simple_bind_s :: LDAPPtr -> CString -> CString -> IO LDAPInt
 
 foreign import ccall unsafe "ldap.h ldap_set_option"
-  ldap_set_option :: LDAPPtr -> LDAPInt -> Ptr () -> IO LDAPInt
+  ldap_set_option :: LDAPPtr -> LDAPInt -> Ptr LDAPInt -> IO LDAPInt
