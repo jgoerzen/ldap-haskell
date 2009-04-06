@@ -77,14 +77,14 @@ checkLEe test callername ld action =
                   let exc = LDAPException {code = hserror,
                                            description = desc,
                                            caller = callername }
-                  throwDyn exc
+                  throwLDAP exc
 {-
 
           else do s <- (ldap_err2string result >>= peekCString)
                   let exc = LDAPException {code = (toEnum (fromIntegral result)), 
                                            description = s,
                                            caller = callername}
-                  throwDyn exc
+                  throwLDAP exc
 -}
 
 {- | Raise an IOError based on errno if getting a NULL.  Identical
