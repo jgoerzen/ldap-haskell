@@ -1,3 +1,9 @@
+ldap-haskell (0.6.5-1) unstable; urgency=low
+
+  * Update for GHC 6.10.  Closes: #522473.
+
+ -- John Goerzen <jgoerzen@complete.org>  Mon, 06 Apr 2009 10:41:58 -0500
+
 ldap-haskell (0.6.4.1) unstable; urgency=high
 
   * Rebuild with newer GHC.
