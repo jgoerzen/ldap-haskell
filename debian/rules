@@ -41,7 +41,6 @@ build: build-stamp
 build-stamp: configure-stamp 
 	dh_testdir
 
-	#make test-ghc6
 	# Add here commands to compile the package.
 	touch build-stamp
 
@@ -72,7 +71,6 @@ builddocs: builddocs-stamp
 builddocs-stamp:
 	dh_testdir
 
-	make doc
 	#make test-hugs
 
 installdocs: builddocs

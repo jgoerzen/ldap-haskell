@@ -1,8 +1,8 @@
 Source: ldap-haskell
 Priority: optional
 Maintainer: John Goerzen <jgoerzen@complete.org>
-Build-Depends: debhelper (>= 4.0.0), ghc6 (>= 6.8.2dfsg1-1), hugs (>= 98.200503.08), haskell-devscripts (>= 0.6.15), libldap2-dev (>= 2.4.7), haddock
-Build-Depends-Indep: debhelper (>= 4.0.0), haddock, ghc6 (>= 6.8.2dfsg1-1), haskell-devscripts (>= 0.6.15), libldap2-dev, haddock
+Build-Depends: debhelper (>= 4.0.0), ghc6 (>= 6.10), hugs (>= 98.200503.08), haskell-devscripts (>= 0.6.15), libldap2-dev (>= 2.4.7), haddock
+Build-Depends-Indep: debhelper (>= 4.0.0), haddock, ghc6 (>= 6.10), haskell-devscripts (>= 0.6.15), libldap2-dev, haddock
 Standards-Version: 3.6.1
 Section: devel
 Vcs-Git: git://git.complete.org/ldap-haskell
