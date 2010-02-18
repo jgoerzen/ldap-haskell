@@ -2,8 +2,8 @@ Source: ldap-haskell
 Priority: optional
 Maintainer: Debian Haskell Group <pkg-haskell-maintainers@lists.alioth.debian.org>
 Uploaders: John Goerzen <jgoerzen@complete.org>
-Build-Depends: debhelper (>= 4.0.0), ghc6 (>= 6.12), haskell-devscripts (>= 0.7.3), libldap2-dev (>= 2.4.7), haddock
-Build-Depends-Indep: debhelper (>= 4.0.0), haddock, ghc6 (>= 6.12), haskell-devscripts (>= 0.7.3), libldap2-dev, haddock
+Build-Depends: debhelper (>= 4.0.0), ghc6 (>= 6.12), haskell-devscripts (>= 0.7.3), libldap2-dev (>= 2.4.7), haddock, cdbs
+Build-Depends-Indep: debhelper (>= 4.0.0), haddock, ghc6 (>= 6.12), haskell-devscripts (>= 0.7.3), libldap2-dev, haddock, cdbs
 Standards-Version: 3.6.1
 Section: devel
 Vcs-Git: git://git.debian.org/git/pkg-haskell/ldap-haskell.git
