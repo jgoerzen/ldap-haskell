@@ -1,7 +1,7 @@
 Source: ldap-haskell
 Priority: optional
 Maintainer: John Goerzen <jgoerzen@complete.org>
-Build-Depends: debhelper (>= 4.0.0), ghc6 (>= 6.12), hugs (>= 98.200503.08), haskell-devscripts (>= 0.7.3), libldap2-dev (>= 2.4.7), haddock
+Build-Depends: debhelper (>= 4.0.0), ghc6 (>= 6.12), haskell-devscripts (>= 0.7.3), libldap2-dev (>= 2.4.7), haddock
 Build-Depends-Indep: debhelper (>= 4.0.0), haddock, ghc6 (>= 6.10), haskell-devscripts (>= 0.6.15), libldap2-dev, haddock
 Standards-Version: 3.6.1
 Section: devel
@@ -22,23 +22,7 @@ Description: LDAP Interface for Haskell
  handling for binary data, and handles all marhsalling into and out of
  C data structures for you automatically.
  .
- This package is built for GHC.  A Hugs package is also available
- in libhugs-ldap.
-
-Package: libhugs-ldap
-Section: devel
-Architecture: any
-Suggests: ldap-haskell-doc
-Depends: ${haskell:Depends}, ${shlibs:Depends}
-Description: LDAP Interface for Haskell
- This package provides an interface to the C LDAP API for Haskell programmers.
- With it, you can search, modify, and interrogate LDAP directories.
- The Haskell binding features automatic memory management and proper
- handling for binary data, and handles all marhsalling into and out of
- C data structures for you automatically.
- .
- This package is built for Hugs.  A GHC package is also available
- in libghc6-ldap-dev.
+ This package is built for GHC.
 
 Package: ldap-haskell-doc
 Section: devel
