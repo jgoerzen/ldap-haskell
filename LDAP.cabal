@@ -41,7 +41,7 @@ Library
   -- CC-Options: -Iglue
   CC-Options: -DLDAP_DEPRECATED=1
   Extensions: ForeignFunctionInterface, TypeSynonymInstances,
-              EmptyDataDecls, PatternSignatures, CPP
+              EmptyDataDecls, ScopedTypeVariables, CPP
 
 Executable runtests
   if flag(buildtests)
@@ -52,7 +52,7 @@ Executable runtests
   Main-Is: runtests.hs
   CC-Options: -DLDAP_DEPRECATED=1
   Extensions: ForeignFunctionInterface, TypeSynonymInstances,
-              EmptyDataDecls, PatternSignatures, CPP
+              EmptyDataDecls, ScopedTypeVariables, CPP
   Hs-Source-Dirs: testsrc, .
   GHC-Options: -O2
 
