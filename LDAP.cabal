@@ -8,6 +8,8 @@ Copyright: Copyright (c) 2005-2010 John Goerzen
 homepage: http://software.complete.org/ldap-haskell
 Category: Network
 Synopsis: Haskell binding for C LDAP API
+Description: This package provides LDAP interface code for Haskell programs,
+ binding to the C LDAP API.
 license-file: COPYRIGHT
 extra-source-files: COPYING
 
