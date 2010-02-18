@@ -1,3 +1,12 @@
+ldap-haskell (0.6.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * Rebuild for GHC 6.12.
+  * Switching to Haskell team maintenance.
+  * Dropping Hugs support for now due to lack of support for Hugs in Cabal.
+
+ -- John Goerzen <jgoerzen@complete.org>  Thu, 18 Feb 2010 11:25:39 -0600
+
 ldap-haskell (0.6.5-1) unstable; urgency=low
 
   * Update for GHC 6.10.  Closes: #522473.
