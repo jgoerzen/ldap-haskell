@@ -1,10 +1,10 @@
 Name: LDAP
-Version: 0.6.5
+Version: 0.6.6
 License: BSD3
 Maintainer: John Goerzen <jgoerzen@complete.org>
 Author: John Goerzen
 Stability: Beta
-Copyright: Copyright (c) 2005-2009 John Goerzen
+Copyright: Copyright (c) 2005-2010 John Goerzen
 homepage: http://software.complete.org/ldap-haskell
 Category: Network
 Synopsis: Haskell binding for C LDAP API
@@ -33,10 +33,7 @@ Library
    LDAP.Result
   Build-Depends: base
 
-  -- Hack for cabal-install weirdness.  cabal-install forces base 3,
-  -- though it works fine for Setup.lhs manually.  Fix.
-  if impl(ghc >= 6.9)
-    build-depends: base >= 4
+  build-depends: base >= 4 && <5
 
   Extra-Libraries: ldap
 
@@ -59,5 +56,4 @@ Executable runtests
   Hs-Source-Dirs: testsrc, .
   GHC-Options: -O2
 
-  if impl(ghc >= 6.9)
-    build-depends: base >= 4
+  build-depends: base >= 4 && < 5
