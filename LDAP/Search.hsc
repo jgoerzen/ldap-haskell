@@ -129,7 +129,11 @@ getvalues :: LDAPPtr -> Ptr CLDAPMessage -> String -> IO [String]
 getvalues cld clm attr =
     withCString attr (\cattr ->
     do berarr <- ldap_get_values_len cld clm cattr
-       finally (procberarr berarr) (ldap_value_free_len berarr)
+       if berarr == nullPtr
+            -- Work around bug between Fedora DS and OpenLDAP (ldapvi
+            -- does the same thing)
+            then return []
+            else finally (procberarr berarr) (ldap_value_free_len berarr)
     )
 
 procberarr :: Ptr (Ptr Berval) -> IO [String]
