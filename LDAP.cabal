@@ -41,7 +41,10 @@ Library
 
   GHC-Options: -O2
   -- CC-Options: -Iglue
-  CC-Options: -DLDAP_DEPRECATED=1
+  if os(openbsd)
+    CC-Options: -DLDAP_X_PROXY_AUTHZ_FAILURE=LDAP_PROXY_AUTHZ_FAILURE
+  else
+    CC-Options: -DLDAP_DEPRECATED=1
   Extensions: ForeignFunctionInterface, TypeSynonymInstances,
               EmptyDataDecls, ScopedTypeVariables, CPP
 
@@ -52,7 +55,10 @@ Executable runtests
     Buildable: False
   Extra-Libraries: ldap
   Main-Is: runtests.hs
-  CC-Options: -DLDAP_DEPRECATED=1
+  if os(openbsd)
+    CC-Options: -DLDAP_X_PROXY_AUTHZ_FAILURE=LDAP_PROXY_AUTHZ_FAILURE
+  else
+    CC-Options: -DLDAP_DEPRECATED=1
   Extensions: ForeignFunctionInterface, TypeSynonymInstances,
               EmptyDataDecls, ScopedTypeVariables, CPP
   Hs-Source-Dirs: testsrc, .
